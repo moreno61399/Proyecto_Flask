@@ -3,13 +3,21 @@ import requests
 from flask import Flask, request
 from pydub import AudioSegment
 import speech_recognition as sr
+from dotenv import load_dotenv
+import os
+
+
+load_dotenv()
+
+ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
+PHONE_NUMBER_ID = os.getenv("PHONE_NUMBER_ID")
+VERIFY_TOKEN = os.getenv("VERIFY_TOKEN")
+
+
 
 app = Flask(__name__)
 
-# --- ZONA DE CONFIGURACIÓN (TUS DATOS YA PUESTOS) ---
-ACCESS_TOKEN = "EAAa1WnotJ64BQIWP7nqdp7k9B9QZADoAuhY1s8yMYqhyVwljB8Q17M3jdkax2C0flmZBdBclzAdHZAr6Q1OGa1ibzrZAOAGczfUQ15wMYz3GSNHo33bN2MHbZCLIxswzcVqzPu3vDjbljqqL4an8OAVghe7csk8PwxGDnPVhp30xs5ZAg6BkLwKWeVnzgWYFPcesZBX4Ql4s9R1ZAZAXzvR0b1UWHl0tfp6IoZAddYD01bffwUnQ3IzOGRG1R8OZBfzZBX0O2kpkq4oIBlZCjGfMBhLdBCbheMb3ypOGRk3eZCf4kZD"
-PHONE_NUMBER_ID = "827332823806931"
-VERIFY_TOKEN = "MI_TOKEN_SECRETO_123"
+
 # ----------------------------------------------------
 
 @app.route("/")
